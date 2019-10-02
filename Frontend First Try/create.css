@@ -1,0 +1,141 @@
+html {
+    height: 100%;
+    font-family: Arial;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 70px 1fr 142px;
+    grid-template-rows: 80px 40px 1fr 20px;
+    grid-template-areas: 
+    "HeaderCell HeaderCell LogoCell"
+    "NavCell NavCell LogoCell" 
+    "NavigationCell ContentCell LogoCell" 
+    "FooterCell FooterCell LogoCell"
+}
+
+/* wenn bildschrimbreite kleiner 600, mach das  */
+
+@media screen and (max-width: 600px) {
+    body {
+        /* Heiliger Grahl des Layouts*/
+        display: grid;
+        /* x Pixel breit Rest 1 fraction */
+        /* auto - so viel Platz wie du brauchst  */
+        grid-template-columns: 80px 1fr;
+        grid-template-rows: 60px 40px 1fr 1fr;
+        grid-template-areas: /* Zellen Namen geben  */
+        "HeaderCell " 
+        "NavigationCell" 
+        "ContentCell" 
+        "FooterCell"
+    }
+}
+
+header {
+    background: rgb(224, 220, 220);
+    grid-area: HeaderCell;
+}
+
+header h1 {
+    color: white;
+    position: absolute;
+    left: 20px;
+    text-shadow: .1rem .1rem .8rem black;
+}
+
+#logo {
+    position: absolute;
+    margin: 0px;
+    right: 0;
+    height: 50px;
+    padding: 15px 10px 5px; 
+    z-index: +1; 
+}
+
+#nav {
+    grid-area: NavCell;
+    background: #cc0000;
+    margin: 0x;
+}
+
+#nav h1 {
+    font-size: 1.4rem;
+    padding-left: 20px;
+    margin: 6px;
+    color: white;
+    text-shadow: .1rem .1rem .8rem black;
+}
+
+#mySidenav {
+    grid-area: NavigationCell;
+    background: rgb(224, 220, 220);
+}
+
+#mySidenav a {
+    position: absolute;
+    /* Position them relative to the browser window */
+    left: 0;
+    /* Position them outside of the screen */
+    transition: 250ms all;
+    /* Add transition on hover */
+    padding: 15px;
+    /* 15px padding */
+    width: 90px;
+    /* Set a specific width */
+    text-decoration: none;
+    /* Remove underline */
+    font-size: 20px;
+    /* Increase font size */
+    color: white;
+    /* White text color */
+    border-radius: 0 5px 5px 0;
+    /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenav a:hover {
+    left: 5px;
+    transform: scale(1.1);
+    background-color: rgb(68, 68, 68);
+    /* On mouse-over, make the elements appear as they should */
+}
+
+/* The about link: 20px from the top with a green background */
+
+#übersicht {
+    top: 170px;
+    background-color: #cc0000;
+    text-shadow: .1rem .1rem .8rem black;
+}
+
+#anlegen {
+    top: 230px;
+    background-color: #cc0000;
+    text-shadow: .1rem .1rem .8rem black;
+    /* Blue */
+}
+
+#validieren {
+    top: 290px;
+    background-color: #cc0000;
+    text-shadow: .1rem .1rem .8rem black;
+   
+}
+
+section {
+    background: white;
+    grid-area: ContentCell;
+    border: 5px black;
+}
+
+#logocell {
+    grid-area: LogoCell;
+    background: #cc0000;
+}
+
+footer {
+    background: rgb(224, 220, 220);
+    grid-area: FooterCell;
+}
